@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour{
 
+    [Range(1, 10)] public float maxSpeed = 5;
+    
+    [Range(1, 10)] public float minSpeed = 5;
+
+    [Range(1, 10)] public float maxForce = 5;
+
     public Vector3 velocity { get; set; } = Vector3.zero;
 
     public Vector3 acceleration { get; set; } = Vector3.zero;
 
-    [Range(1, 10)] public float maxSpeed = 5;
+    public Vector3 direction { get { return velocity.normalized; } }
 
     // Start is called before the first frame update
 
@@ -32,7 +38,7 @@ public class Movement : MonoBehaviour{
 
         velocity += acceleration * Time.deltaTime;
 
-        velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
+        velocity = utilities.ClampMagnitude(velocity, minSpeed, maxSpeed);
 
         if (velocity.sqrMagnitude > 0.1f){
 

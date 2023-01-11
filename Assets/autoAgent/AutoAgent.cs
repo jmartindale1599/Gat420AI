@@ -14,11 +14,11 @@ public class AutoAgent : Agent
 
         }
 
-        if (gameObjects != null){//< game objects array contains at least one game object){
+        if (gameObjects.Length > 0){//< game objects array contains at least one game object){
 
-            Vector3 direction = (gameObjects[0].transform.position - transform.position).normalized;
+            movement.ApplyForce(steering.Seek(this, gameObjects[0]) * 0);
 
-            movement.ApplyForce(direction * 2);
+            movement.ApplyForce(steering.Flee(this, gameObjects[0]) * 1);
         
         }
 

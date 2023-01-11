@@ -24,4 +24,10 @@ public static class utilities{
     
     }
 
+    public static Vector3 ClampMagnitude(Vector3 v, float min, float max){ 
+    
+        return v.normalized * Mathf.Clamp(v.magnitude, min, max);
+    
+    }
+
 }
