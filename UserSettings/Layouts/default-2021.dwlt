@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1706.6667
     height: 984
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Inspector
   m_RootView: {fileID: 8}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 99
+  controlID: 120
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 300}
   m_MaxSize: {x: 24288, y: 24288}
   vertical: 0
-  controlID: 96
+  controlID: 117
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 300}
   m_MaxSize: {x: 16192, y: 24288}
   vertical: 1
-  controlID: 97
+  controlID: 118
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -298,7 +298,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 0
-  controlID: 98
+  controlID: 119
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -367,21 +367,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Agent
+    - Assets/prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 55
   m_LastFolders:
-  - Assets/Agent
+  - Assets/prefabs
   m_LastFoldersGridSize: 55
   m_LastProjectPath: C:\Users\jmartindale\Gat420
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 5e5a0000
-    m_LastClickedID: 23134
+    m_SelectedIDs: 605a0000
+    m_LastClickedID: 23136
     m_ExpandedIDs: 000000004a5a00004c5a00004e5a0000505a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -454,7 +454,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 4}
+      m_ClientGUIView: {fileID: 2}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -465,7 +465,7 @@ MonoBehaviour:
     m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 55
   m_SkipHiddenPackages: 0
-  m_DirectoriesAreaWidth: 146
+  m_DirectoriesAreaWidth: 192
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -538,8 +538,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 460b0000
-      m_LastClickedID: 0
+      m_SelectedIDs: ea65ffffd865ffffc665ffffb465ffffa265ffff2865ffff1665ffff0465fffff264ffffe064ffffce64ffffbc64ffff
+      m_LastClickedID: -39748
       m_ExpandedIDs: 32fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -838,13 +838,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.29119697, y: 0.6905252, z: -0.36276925, w: -0.5539973}
+    m_Target: {x: -0.21775429, y: 0.5087461, z: -0.13450734, w: -0.8220808}
     speed: 2
-    m_Value: {x: -0.2911773, y: 0.6904785, z: -0.36274472, w: -0.55395985}
+    m_Value: {x: -0.21773812, y: 0.5087083, z: -0.13449736, w: -0.82201976}
   m_Size:
-    m_Target: 13.18118
+    m_Target: 9.93879
     speed: 2
-    m_Value: 13.18118
+    m_Value: 9.93879
   m_Ortho:
     m_Target: 1
     speed: 2
