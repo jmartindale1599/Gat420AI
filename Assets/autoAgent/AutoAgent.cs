@@ -1,9 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AutoAgent : Agent
 {
+
+    public float wanderDistance = 1;
+
+    public float wanderRadius = 3;
+    
+    public float wanderDisplacement = 5;
+
+    public float wanderAngle { get; set; } = 0;
+
     void Update(){
 
         var gameObjects = perception.GetGameObjects();
@@ -19,6 +29,12 @@ public class AutoAgent : Agent
             movement.ApplyForce(steering.Seek(this, gameObjects[0]) * 0);
 
             movement.ApplyForce(steering.Flee(this, gameObjects[0]) * 1);
+        
+        }
+
+        if (movement.acceleration.sqrMagnitude <= movement.maxForce * 0.1f){
+
+            movement.ApplyForce(steering.Wander(this));
         
         }
 
