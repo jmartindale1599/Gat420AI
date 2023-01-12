@@ -50,10 +50,46 @@ public static class steering{
         
         Vector3 forward = agent.transform.forward * agent.wanderDistance;
 
+        Debug.DrawRay(agent.transform.position, forward + point, Color.magenta);
+
         Vector3 force = CalculateSteering(agent, forward + point);
 
         return force;
     
+    }
+
+    public static Vector3 Cohesion(Agent agent, GameObject[] neighbors){ 
+    
+        //gets center position of neighbors
+
+        Vector3 center = Vector3.zero;
+    
+        foreach(GameObject neigbor in neighbors){
+
+            center += neigbor.transform.position;
+        
+        }
+
+        center /= neighbors.Length;
+
+        //steer towards center of neighbors
+
+        Vector3 force = CalculateSteering(agent, center - agent.transform.position);
+
+        return force;
+
+    }
+
+    public static Vector3 Seperation(Agent agent, GameObject[] neighbors, float radius){
+
+        return Vector3.zero;
+    
+    }
+
+    public static Vector3 Allignment(Agent agent, GameObject[] neighbors){
+
+        return Vector3.zero;
+
     }
 
 }

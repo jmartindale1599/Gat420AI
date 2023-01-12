@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour{
     
     [Range(1, 10)] public float minSpeed = 5;
 
-    [Range(1, 10)] public float maxForce = 5;
+    [Range(1, 100)] public float maxForce = 5;
 
     public Vector3 velocity { get; set; } = Vector3.zero;
 

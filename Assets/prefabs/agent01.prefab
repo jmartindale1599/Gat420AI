@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 8155735227973487868}
   - component: {fileID: 8155735227973487869}
   - component: {fileID: 8155735227973487871}
+  - component: {fileID: -3526514641213535217}
   - component: {fileID: 8155735227973487865}
   - component: {fileID: 8155735227973487870}
   - component: {fileID: 8155735227973487842}
   - component: {fileID: 8155735227973487840}
   m_Layer: 0
-  m_Name: agent
-  m_TagString: Untagged
+  m_Name: agent01
+  m_TagString: Agent01
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,9 +60,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   perception: {fileID: 8155735227973487865}
   movement: {fileID: 8155735227973487870}
-  wanderDistance: 1
-  wanderRadius: 3
-  wanderDisplacement: 5
+  flockPerception: {fileID: -3526514641213535217}
+  fleeWeight: 1
+  seekWeight: 0
+  wanderDistance: 2
+  wanderRadius: 4
+  wanderDisplacement: 3
+--- !u!114 &-3526514641213535217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8155735227973487841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 970a0211082be2e43bbe4d88c47be763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 10
+  maxAngle: 180
+  tagName: Agent01
 --- !u!114 &8155735227973487865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,9 +93,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970a0211082be2e43bbe4d88c47be763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 14
-  maxAngle: 90
-  tagName: Agent01
+  distance: 8
+  maxAngle: 70
+  tagName: Agent02
 --- !u!114 &8155735227973487870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,8 +109,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 5
-  minSpeed: 5
-  maxForce: 5
+  minSpeed: 2
+  maxForce: 73
 --- !u!23 &8155735227973487842
 MeshRenderer:
   m_ObjectHideFlags: 0
