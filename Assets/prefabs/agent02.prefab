@@ -61,15 +61,7 @@ MonoBehaviour:
   perception: {fileID: 8155735227973487865}
   movement: {fileID: 8155735227973487870}
   flockPerception: {fileID: -1001664838890652497}
-  fleeWeight: 0
-  seekWeight: 1
-  cohesionWeight: 0
-  seperationWeight: 0
-  alignmentWeight: 0
-  seperationRadius: 0
-  wanderDistance: 2
-  wanderRadius: 4
-  wanderDisplacement: 3
+  data: {fileID: 11400000, guid: 45bf6717bd340d04a85860f270847a71, type: 2}
 --- !u!114 &-1001664838890652497
 MonoBehaviour:
   m_ObjectHideFlags: 0
