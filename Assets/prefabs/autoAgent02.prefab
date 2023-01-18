@@ -734,8 +734,8 @@ GameObject:
   - component: {fileID: 8155735227973487842}
   - component: {fileID: 8155735227973487840}
   m_Layer: 0
-  m_Name: agent01
-  m_TagString: Agent01
+  m_Name: autoAgent02
+  m_TagString: Agent02
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -783,7 +783,7 @@ MonoBehaviour:
   movement: {fileID: 8155735227973487870}
   flockPerception: {fileID: 8384346279779269804}
   obstacleAvoidance: {fileID: 6975952395958576663}
-  data: {fileID: 11400000, guid: 699e98aaf61c24249a9563f5bcd6bf6a, type: 2}
+  data: {fileID: 11400000, guid: 45bf6717bd340d04a85860f270847a71, type: 2}
 --- !u!114 &8384346279779269804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -796,7 +796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d232c872fe026b4e8fb5addb08ae731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagName: Agent01
+  tagName: Agent02
   distance: 10
   maxAngle: 150
   raycastTransform: {fileID: 2794400237803432740}
@@ -813,7 +813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d232c872fe026b4e8fb5addb08ae731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagName: Agent02
+  tagName: Agent01
   distance: 15
   maxAngle: 80
   raycastTransform: {fileID: 2794400237803432740}
@@ -846,9 +846,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raycastTransform: {fileID: 2794400237803432740}
-  distance: 8
-  maxAngle: 150
-  numRaycast: 2
+  distance: 10
+  maxAngle: 160
+  numRaycast: 6
   layerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -872,7 +872,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e3c6bbd530fbb2e4b96798ac585c9f0f, type: 2}
+  - {fileID: 2100000, guid: a4fa469d1010bb54081f3670a05c41ef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

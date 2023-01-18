@@ -22,9 +22,11 @@ public class ObstaclePerception : MonoBehaviour{
 
 		// check if object is in front of agent 
 		
-		Ray ray = new Ray(transform.position, transform.forward);
-		
-		return Physics.Raycast(ray, distance, layerMask);
+		Ray ray = new Ray(raycastTransform.position, raycastTransform.forward);
+
+		Debug.DrawLine(ray.origin, ray.direction * distance, Color.green);
+
+		return Physics.SphereCast(ray, distance, layerMask);
 
 	}
 
@@ -36,10 +38,16 @@ public class ObstaclePerception : MonoBehaviour{
 
 			Ray ray = new Ray(raycastTransform.position, raycastTransform.rotation * direction);
 
-			if (Physics.Raycast(ray, distance, layerMask) == false){
+			if (Physics.SphereCast(ray, 2 ,distance, layerMask) == false){
+
+				Debug.DrawLine(ray.origin, ray.direction * distance, Color.white);
 
 				return ray.direction;
 			
+			}else{
+
+				Debug.DrawLine(ray.origin, ray.direction * distance, Color.red);
+
 			}
 
 		}

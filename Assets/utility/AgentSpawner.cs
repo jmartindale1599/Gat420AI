@@ -16,7 +16,7 @@ public class AgentSpawner : MonoBehaviour{
 
         if (Input.GetKey(KeyCode.Alpha2)) index = 1;
 
-        if (Input.GetMouseButtonDown(0)){
+        if (Input.GetMouseButtonDown(0) || (Input.GetMouseButton(0) && Input.GetKey(KeyCode.LeftControl))){
 
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             
