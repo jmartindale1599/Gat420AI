@@ -7,6 +7,8 @@ public class AutoAgent : Agent{
 
 	public Perception flockPerception;
 
+	public ObstaclePerception obstacleAvoidance;
+
 	public AutonomousAgentData data;
 
     public float wanderAngle { get; set; } = 0;
@@ -43,13 +45,23 @@ public class AutoAgent : Agent{
         
         }
 
-        if (movement.acceleration.sqrMagnitude <= movement.maxForce * 0.1f){
+		// obstacle avoidance
+
+		if (obstacleAvoidance.IsObstacleInFront()){
+
+			Vector3 direction = obstacleAvoidance.GetOpenDirection();
+			
+            movement.ApplyForce(steering.CalculateSteering(this, direction) * data.obstacleWeight);
+
+		}
+
+		if (movement.acceleration.sqrMagnitude <= movement.maxForce * 0.1f){
 
             movement.ApplyForce(steering.Wander(this));
         
         }
 
-        transform.position = utilities.Wrap(transform.position, new Vector3(-10, -10, -10), new Vector3(10, 10, 10));
+        transform.position = utilities.Wrap(transform.position, new Vector3(-20, -20, -20), new Vector3(20, 20, 20));
 
     }
 
