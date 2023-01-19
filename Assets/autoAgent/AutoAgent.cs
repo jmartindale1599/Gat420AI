@@ -61,7 +61,13 @@ public class AutoAgent : Agent{
         
         }
 
-        transform.position = utilities.Wrap(transform.position, new Vector3(-20, -20, -20), new Vector3(20, 20, 20));
+        Vector3 position = transform.position;
+
+        position = utilities.Wrap(position, new Vector3(-20, -20, -20), new Vector3(20, 20, 20));
+
+        position.y = 0;
+
+        transform.position = position;
 
     }
 
