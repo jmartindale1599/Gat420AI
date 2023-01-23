@@ -8,8 +8,6 @@ public class WaypointNode : NavNode{
 
 	[SerializeField] private NavNode[] nodes;
 
-	[SerializeField, Range(1,5)] private float radius = 1.5f;
-
 	private void OnValidate(){
 		
 		GetComponent<SphereCollider>().radius = radius;
@@ -20,7 +18,7 @@ public class WaypointNode : NavNode{
 
 		if (other.gameObject.TryGetComponent<NavAgent>(out NavAgent navAgent)){
 		
-			if (navAgent.targetNode == this){
+			if (navAgent.targetNode == this && neighbors.Count > 0){
 			
 				navAgent.targetNode = nodes[Random.Range(0, nodes.Length)];
 			
@@ -34,7 +32,7 @@ public class WaypointNode : NavNode{
 
 		if (other.gameObject.TryGetComponent<NavAgent>(out NavAgent navAgent)){
 
-			if (navAgent.targetNode == this){
+			if (navAgent.targetNode == this && neighbors.Count > 0){
 
 				navAgent.targetNode = nodes[Random.Range(0, nodes.Length)];
 			

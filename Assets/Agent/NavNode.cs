@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class NavNode : MonoBehaviour{
 
+	[SerializeField] public List<NavNode> neighbors;
+
+	[SerializeField, Range(1, 10)] public float radius = 1;
+
 	public static NavNode[] GetNodes(){
 
 		return FindObjectsOfType<NavNode>();
