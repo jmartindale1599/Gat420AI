@@ -8,9 +8,13 @@ public class NavPath : MonoBehaviour{
 
 	List<NavNode> path = new List<NavNode>();
 
+	public endAction endingAct = endAction.RANDOM;
+
 	public NavNode startNode { get; set; }
 	
 	public NavNode endNode { get; set; }
+
+	public enum endAction { RANDOM, PING_PONG, STOP}
 
 	public void StartPath(){
 
@@ -24,12 +28,16 @@ public class NavPath : MonoBehaviour{
 
 		int index = path.FindIndex(node => node == navNode);
 		
-		// check if noode index is at the end of the path
+		// check if node index is at the end of the path
 		
-		if (index == path.Count - 1){
+		if (index == path.Count - 1){ // end of path
 
-			SetRandomEndNode();
-			
+			if(endingAct == endAction.STOP){ return null; }
+
+			else if(endingAct == endAction.PING_PONG){ swapStartNode(); }
+
+			else { SetRandomEndNode(); }
+
 			// generate new path
 			
 			GeneratePath();
@@ -43,6 +51,16 @@ public class NavPath : MonoBehaviour{
 		NavNode nextNode = path[index + 1];
 
 		return nextNode;
+	
+	}
+
+	private void swapStartNode(){
+
+		NavNode tempNode = startNode;
+
+		startNode = endNode;
+
+		endNode = tempNode;
 	
 	}
 
@@ -66,7 +84,7 @@ public class NavPath : MonoBehaviour{
 
 		NavNode.ResetNodes();
 
-		Path.Dijkstra(startNode, endNode, ref path);
+		Path.AStar(startNode, endNode, ref path);
 	
 	}
 
@@ -74,7 +92,7 @@ public class NavPath : MonoBehaviour{
 
 		foreach (NavNode node in path){
 
-			Gizmos.color = Color.blue;
+			Gizmos.color = Color.yellow;
 			
 			Gizmos.DrawWireSphere(node.gameObject.transform.position, node.radius);
 		

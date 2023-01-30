@@ -15,10 +15,6 @@ public class NavNodeEditor : MonoBehaviour{
 
 	private Vector3 position = Vector3.zero;
 
-	private Vector3 nodeCameraDirection = Vector3.zero;
-
-	private Vector3 activeCameraDirection = Vector3.zero;
-
 	private bool spawnable = false;
 
 	private NavNode navNode = null;
@@ -129,10 +125,6 @@ public class NavNodeEditor : MonoBehaviour{
 		
 		}
 
-		activeCameraDirection = (activeNavNode != null) ? (scene.camera.transform.position - activeNavNode.transform.position).normalized : Vector3.zero;
-	
-		nodeCameraDirection = (navNode != null) ? (scene.camera.transform.position - navNode.transform.position).normalized : Vector3.zero;
-	
 	}
 
 	private void OnDrawGizmos(){
@@ -145,7 +137,7 @@ public class NavNodeEditor : MonoBehaviour{
 
 		}if (navNode != null && navNode != activeNavNode){
 
-			Gizmos.DrawIcon(navNode.transform.position + nodeCameraDirection, "nav_nodeA.png", true, Color.green);
+			Gizmos.DrawIcon(navNode.transform.position + Vector3.up, "nav_nodeA.png", true, Color.green);
 			
 			Gizmos.color = Color.green;
 			
@@ -153,7 +145,7 @@ public class NavNodeEditor : MonoBehaviour{
 		
 		}if (activeNavNode != null){
 
-			Gizmos.DrawIcon(activeNavNode.transform.position + activeCameraDirection, "nav_nodeA.png", true, Color.red);
+			Gizmos.DrawIcon(activeNavNode.transform.position + Vector3.up, "nav_nodeA.png", true, Color.red);
 			
 			Gizmos.color = Color.red;
 			

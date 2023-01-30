@@ -28,6 +28,12 @@ public class Movement : MonoBehaviour{
 
     }
 
+    public void Stop(){ 
+    
+        velocity = Vector3.zero;
+    
+    }
+
     public void ApplyForce(Vector3 force){
 
         acceleration += force;
