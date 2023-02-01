@@ -8,4 +8,8 @@ public abstract class Agent : MonoBehaviour{
 
     public Movement movement;
 
+	public Animator animator;
+
+    public Navigation navigation;
+
 }
