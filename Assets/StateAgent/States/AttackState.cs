@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.UI.GridLayoutGroup;
+
 
 public class AttackState : State{
 
@@ -23,7 +23,7 @@ public class AttackState : State{
 
         AnimationClip[] clips = owner.animator.runtimeAnimatorController.animationClips;
 
-        AnimationClip clip = clips.FirstOrDefault<AnimationClip>(clip => clip.name == "Stabbing");
+        AnimationClip clip = clips.FirstOrDefault<AnimationClip>(clip => clip.name == "Stabbing"); //fancy for loop
         
         timer = (clip != null) ? clip.length : 1;
     

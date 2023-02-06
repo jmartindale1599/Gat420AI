@@ -14,7 +14,7 @@ public class IdleState : State{
 
 		Debug.Log("Idle Enter");
 
-		timer = 4.9f;
+		timer = Random.Range(1,5);
 	
 	}
 

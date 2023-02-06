@@ -22,7 +22,7 @@ public class WanderState : State{
 
         // create random target position around owner 
 
-        target = owner.transform.position + Quaternion.AngleAxis(Random.Range(1,360),Vector3.left).eulerAngles;
+        target = owner.transform.position + Quaternion.AngleAxis(Random.Range(0,360),Vector3.up).eulerAngles;
 
     }
 

@@ -8,7 +8,7 @@ public class StateAgent : Agent{
 
     public GameObject[] percieved;
 
-    public Camera mainCamera;
+    private Camera mainCamera;
 
     void Start(){
 
