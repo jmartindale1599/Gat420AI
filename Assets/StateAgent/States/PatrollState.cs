@@ -19,6 +19,8 @@ public class PatrolState : State{
 
 		timer = Random.Range(5, 10);
 
+
+
 	}
 
 	public override void OnExit(){
@@ -27,7 +29,6 @@ public class PatrolState : State{
 
 	public override void OnUpdate(){
 
-		timer =- Time.deltaTime;
 
         if (owner.percieved.Length > 0){ 
 		
@@ -35,8 +36,9 @@ public class PatrolState : State{
 		
 		}
 
-		if(timer <= 0){
+		timer -= Time.deltaTime;
 
+		if(timer <= 0){
 			owner.stateMachine.StartState(nameof(WanderState));
 		
 		}

@@ -12,15 +12,11 @@ public class IdleState : State{
 
 	public override void OnEnter(){
 
-		Debug.Log("Idle Enter");
-
 		timer = Random.Range(1,5);
 	
 	}
 
 	public override void OnExit(){
-
-		Debug.Log("Idle Exit");
 
 	}
 

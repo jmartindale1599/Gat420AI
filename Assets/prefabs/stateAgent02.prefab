@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 1272852234936422557}
   m_Layer: 0
   m_Name: Agent02
-  m_TagString: Agent01
+  m_TagString: Agent02
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b17ca9fcfd6ada647968ee3ee93fbb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagName: Agent02
+  tagName: Agent01
   distance: 10
   maxAngle: 60
   raycastTransform: {fileID: 1272852235060348108}
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36ac92ee1c0c0f845924c645a7ab3eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 7
+  maxSpeed: 4
   minSpeed: 4
   maxForce: 5
   turnRate: 180
