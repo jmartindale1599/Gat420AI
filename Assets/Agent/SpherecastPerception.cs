@@ -8,50 +8,54 @@ public class SpherecastPerception : Perception{
 	
 	[Range(2, 50)] public int numRaycast = 2;
 
-	[Range(1, 10)] public float raidus = 3;
+	[Range(0.1f, 10)] public float raidus = 1;
 
-	public override GameObject[] GetGameObjects(){
+    public override GameObject[] GetGameObjects(){
+        List<GameObject> result = new List<GameObject>();
 
-		List<GameObject> result = new List<GameObject>();
+        Vector3[] directions = utilities.GetDirectionsInCircle(numRaycast, maxAngle);
 
-		Vector3[] directions = utilities.GetDirectionsInCircle(numRaycast, maxAngle);
-		
-		foreach ( var direction in directions ){
+        foreach (var direction in directions){
 
-			// cast ray from transform position towards direction 
+            // cast ray from transform position towards direction 
+            
+            Ray ray = new Ray(raycastTransform.position, raycastTransform.rotation * direction);
 
-			Ray ray = new Ray(raycastTransform.position, raycastTransform.rotation * direction);
+            if (Physics.SphereCast(ray, raidus, out RaycastHit raycastHit, distance)){
 
-			Debug.DrawRay(ray.origin,ray.direction * distance);
+                // don't perceive self 
+                
+                if (raycastHit.collider.gameObject == gameObject) continue;
+                
+                // check for tag match 
+                
+                if (tagName == "" || raycastHit.collider.CompareTag(tagName)){
 
-			if (Physics.SphereCast(ray, raidus, out RaycastHit raycastHit, distance)){
+                    Debug.DrawRay(ray.origin, ray.direction * raycastHit.distance, Color.red);
+                    
+                    // add game object if ray hit and tag matches 
+                    
+                    result.Add(raycastHit.collider.gameObject);
+                
+                }else{
 
-				// don't perceive self 
-				
-				if (raycastHit.collider.gameObject == gameObject) continue;
-				
-				// check for tag match 
+                    Debug.DrawRay(ray.origin, ray.direction * raycastHit.distance, Color.green);
+                
+                }
 
-				if (tagName == "" || raycastHit.collider.CompareTag(tagName)){
+            }else{
 
-					// add game object if ray hit and tag matches 
+                Debug.DrawRay(ray.origin, ray.direction * distance);
+            
+            }
 
-					Debug.DrawRay(ray.origin, ray.direction * distance, color:Color.red);
+        }
 
-					result.Add(raycastHit.collider.gameObject);
-				
-				}
+        // sort results by distance 
+        
+        result.Sort(CompareDistance);
 
-			}
-
-		}
-
-		// sort results by distance 
-		
-		result.Sort(CompareDistance);
-
-		return result.ToArray();
-	
-	}
+        return result.ToArray();
+    }
 
 }

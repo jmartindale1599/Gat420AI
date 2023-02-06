@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour{
+public abstract class Movement : MonoBehaviour{
 
     [Range(1, 10)] public float maxSpeed = 5;
     
@@ -10,60 +10,22 @@ public class Movement : MonoBehaviour{
 
     [Range(1, 100)] public float maxForce = 5;
 
-    public Vector3 velocity { get; set; } = Vector3.zero;
+    [Range(1, 360)] public float turnRate = 90;
 
-    public Vector3 acceleration { get; set; } = Vector3.zero;
+    public virtual Vector3 velocity { get; set; } = Vector3.zero;
 
-    public Vector3 direction { get { return velocity.normalized; } }
+    public virtual Vector3 acceleration { get; set; } = Vector3.zero;
 
-    // Start is called before the first frame update
+    public virtual Vector3 direction { get { return velocity.normalized; } }
 
-    void Start(){
+    public virtual Vector3 destination { get;set; } = Vector3.zero;
 
-    }
+    public abstract void ApplyForce(Vector3 force);
 
-    // Update is called once per frame
+    public abstract void MoveTowards(Vector3 target);
     
-    void Update(){
+    public abstract void Stop();
 
-    }
-
-    public void Stop(){ 
-    
-        velocity = Vector3.zero;
-    
-    }
-
-    public void ApplyForce(Vector3 force){
-
-        acceleration += force;
-
-    }
-
-	public void MoveTowards(Vector3 target){
-
-		Vector3 direction = (target - transform.position).normalized;
-		
-        ApplyForce(direction * maxForce);
-
-	}
-
-	void LateUpdate(){
-
-        velocity += acceleration * Time.deltaTime;
-
-        velocity = utilities.ClampMagnitude(velocity, minSpeed, maxSpeed);
-
-        if (velocity.sqrMagnitude > 0.1f){
-
-            transform.rotation = Quaternion.LookRotation(velocity);
-
-        }
-
-        transform.position += velocity * Time.deltaTime;
-
-        acceleration = Vector3.zero;
-
-    }
+    public abstract void Resume();
 
 }
