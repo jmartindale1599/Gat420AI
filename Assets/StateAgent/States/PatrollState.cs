@@ -17,9 +17,7 @@ public class PatrolState : State{
 
 		owner.navigation.targetNode = owner.navigation.GetNearestNode();
 
-		timer = Random.Range(5, 10);
-
-
+		owner.timer.value = Random.Range(5, 10);
 
 	}
 

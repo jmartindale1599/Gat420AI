@@ -12,7 +12,9 @@ public class IdleState : State{
 
 	public override void OnEnter(){
 
-		timer = Random.Range(1,5);
+		owner.movement.Stop();
+
+		owner.timer.value = Random.Range(1,5);
 	
 	}
 
@@ -21,14 +23,6 @@ public class IdleState : State{
 	}
 
 	public override void OnUpdate(){
-
-		timer -= Time.deltaTime;
-
-		if(timer <= 0){
-
-			owner.stateMachine.StartState(nameof(PatrolState));
-		
-		}
 
 	}
 
