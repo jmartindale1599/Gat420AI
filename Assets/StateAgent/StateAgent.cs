@@ -64,13 +64,15 @@ public class StateAgent : Agent{
         
         Condition atDestinationCondition = new BoolCondition(atDestination, true);
 
-        //Create transitions
+        //Create transitions, idles:
 
         stateMachine.AddTransition(nameof(IdleState), new Transition(new Condition[] { timerExpiredCondition }), nameof(PatrolState));
 
         stateMachine.AddTransition(nameof(IdleState), new Transition(new Condition[] { enemySeenCondition, healthOkCondition }), nameof(ChaseState));
 
         stateMachine.AddTransition(nameof(IdleState), new Transition(new Condition[] { enemySeenCondition, healthLowCondition }), nameof(EvadeScript));
+
+        //patrols:
 
         stateMachine.AddTransition(nameof(PatrolState), new Transition(new Condition[] { timerExpiredCondition }), nameof(WanderState));
 
