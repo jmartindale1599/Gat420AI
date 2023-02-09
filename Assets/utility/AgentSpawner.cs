@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AgentSpawner : MonoBehaviour{
 
-    public Agent[] agents;
+    public StateAgent[] agents;
     
     public LayerMask layerMask;
 

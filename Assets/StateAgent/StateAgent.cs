@@ -38,6 +38,10 @@ public class StateAgent : Agent{
 
         stateMachine.AddState(new AttackState(this));
 
+        stateMachine.AddState(new DeathState(this));
+
+        stateMachine.AddState(new EvadeScript(this));
+
         stateMachine.StartState(nameof(IdleState));
 
         // create conditions
@@ -45,6 +49,8 @@ public class StateAgent : Agent{
         Condition timerExpiredCondition = new FloatCondition(timer, Condition.Predicate.LESS_EQUAL, 0);
 
         Condition enemySeenCondition = new BoolCondition(enemySeen, true);
+
+        Condition enemyNear = new FloatCondition(enemyDistance,Condition.Predicate.LESS, 2);
         
         Condition enemyNotSeenCondition = new BoolCondition(enemySeen, false);
         
@@ -62,11 +68,19 @@ public class StateAgent : Agent{
 
         stateMachine.AddTransition(nameof(IdleState), new Transition(new Condition[] { timerExpiredCondition }), nameof(PatrolState));
 
-        stateMachine.AddTransition(nameof(IdleState), new Transition(new Condition[] { enemySeenCondition }), nameof(ChaseState));
+        stateMachine.AddTransition(nameof(IdleState), new Transition(new Condition[] { enemySeenCondition, healthOkCondition }), nameof(ChaseState));
+
+        stateMachine.AddTransition(nameof(IdleState), new Transition(new Condition[] { enemySeenCondition, healthLowCondition }), nameof(EvadeScript));
 
         stateMachine.AddTransition(nameof(PatrolState), new Transition(new Condition[] { timerExpiredCondition }), nameof(WanderState));
 
-        stateMachine.AddTransition(nameof(PatrolState), new Transition(new Condition[] { enemySeenCondition }), nameof(ChaseState));
+		stateMachine.AddTransition(nameof(PatrolState), new Transition(new Condition[] { enemySeenCondition, healthOkCondition }), nameof(ChaseState));
+
+		stateMachine.AddTransition(nameof(PatrolState), new Transition(new Condition[] { enemySeenCondition, healthLowCondition }), nameof(EvadeScript));
+
+		stateMachine.AddAnyTransition(new Transition(new Condition[] { deathCondition }), nameof(DeathState));
+
+
 
         stateMachine.StartState(nameof(IdleState));
 

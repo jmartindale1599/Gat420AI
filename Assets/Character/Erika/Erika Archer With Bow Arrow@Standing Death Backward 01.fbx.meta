@@ -1,87 +1,12 @@
 fileFormatVersion: 2
-guid: 7da160832d578754c93deba4886c9dea
+guid: 2b21e24903154384a8659af00647a409
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: mixamo.com
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Akai_MAT1
-    second: {fileID: 2100000, guid: 19a9e3563f156ec40ab66127b975012a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Arrow_MAT
-    second: {fileID: 2100000, guid: 82875744eb183b143b02e82a4e21faf5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Body_MAT1
-    second: {fileID: 2100000, guid: 94caa00b062d61f4d9faa375e5acbe5c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Bow_MAT
-    second: {fileID: 2100000, guid: f7ba6f732e9e6dd43ad037da69bed49a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: EyeSpec_MAT1
-    second: {fileID: 2100000, guid: e62a0eebca2ea774287e77ef46ecc95f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: phong1
-    second: {fileID: 2100000, guid: 86acf90f9f081a444a78fc67ad062184, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Arrow_DIFF
-    second: {fileID: 2800000, guid: 78bef0e9847db68439f2a2c9bcccc64e, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Arrow_NM
-    second: {fileID: 2800000, guid: 710c4f14da8c7634a8ac5d34cad835a9, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Bow_DIFF
-    second: {fileID: 2800000, guid: 2b68550725cd7d04c9bb87371d03bdf9, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Bow_NM
-    second: {fileID: 2800000, guid: 7abbd2a6ed45c5349b252f227dc16c26, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Erika_Archer_Clothes_diffuse
-    second: {fileID: 2800000, guid: 3273c60f1bc7a0b4fa0b31ba310f3730, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Erika_Archer_Clothes_normal
-    second: {fileID: 2800000, guid: d035855810cde314aa80311c4a2fc5a5, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: FemaleFitA_Body_diffuse
-    second: {fileID: 2800000, guid: c491523f9f0d3c04c9b5c599d03d6076, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: FemaleFitA_StdNM
-    second: {fileID: 2800000, guid: 1ceaa70103527d14fa5aa6fb520b6104, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: FemaleFitA_eyelash_diffuse
-    second: {fileID: 2800000, guid: 805a424cc78101147a48e17f1ef857bd, type: 3}
+    second: Death
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -109,7 +34,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Death
+      takeName: mixamo.com
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 77
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: -0.1
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 1
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -153,11 +107,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - e892d2201a624ab4b967d2c4f6125e1b
-  - cc780075075cd9d4e804ceaeab539eaf
-  - 2b21e24903154384a8659af00647a409
-  - 2185cda8902d4f243b8d2cbba420699a
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
@@ -968,11 +918,11 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 7da160832d578754c93deba4886c9dea, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 2
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0

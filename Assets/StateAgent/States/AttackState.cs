@@ -26,7 +26,21 @@ public class AttackState : State{
         AnimationClip clip = clips.FirstOrDefault<AnimationClip>(clip => clip.name == "Stabbing"); //fancy for loop
         
         timer = (clip != null) ? clip.length : 1;
-    
+
+        var colliders = Physics.OverlapSphere(owner.transform.position, 2);
+
+        foreach(var collider in colliders){
+
+            if (collider.gameObject == owner.gameObject || collider.gameObject.CompareTag(owner.tag)) continue;
+
+            if(collider.gameObject.TryGetComponent<StateAgent>(out var stateAgentComp)){
+
+                stateAgentComp.health.value -= Random.Range(20, 30);
+            
+            }
+
+        }
+
     }
 
     public override void OnExit(){
