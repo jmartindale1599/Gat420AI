@@ -59,7 +59,7 @@ public class StateAgent : Agent{
         Condition healthOkCondition = new FloatCondition(health, Condition.Predicate.GREATER, 30);
         
         Condition deathCondition = new FloatCondition(health, Condition.Predicate.LESS_EQUAL, 0);
-        
+
         Condition animationDoneCondition = new BoolCondition(animationDone, true);
         
         Condition atDestinationCondition = new BoolCondition(atDestination, true);
@@ -80,9 +80,33 @@ public class StateAgent : Agent{
 
 		stateMachine.AddTransition(nameof(PatrolState), new Transition(new Condition[] { enemySeenCondition, healthLowCondition }), nameof(EvadeScript));
 
-		stateMachine.AddAnyTransition(new Transition(new Condition[] { deathCondition }), nameof(DeathState));
+        //chase
 
+        stateMachine.AddTransition(nameof(ChaseState), new Transition(new Condition[] { enemyNotSeenCondition, timerExpiredCondition }), nameof(IdleState));
 
+        stateMachine.AddTransition(nameof(ChaseState), new Transition(new Condition[] { enemySeenCondition, enemyNear}), nameof(AttackState));
+
+        //wander
+
+        stateMachine.AddTransition(nameof(WanderState), new Transition(new Condition[] { timerExpiredCondition }), nameof(IdleState));
+
+        stateMachine.AddTransition(nameof(WanderState), new Transition(new Condition[] { enemyNear, healthOkCondition }), nameof(AttackState));
+
+        stateMachine.AddTransition(nameof(WanderState), new Transition(new Condition[] { enemySeenCondition, healthLowCondition }), nameof(EvadeScript));
+
+        //attack
+
+        stateMachine.AddTransition(nameof(AttackState), new Transition(new Condition[] { enemySeenCondition, timerExpiredCondition }), nameof(ChaseState));
+        
+        stateMachine.AddTransition(nameof(AttackState), new Transition(new Condition[] { enemyNotSeenCondition, timerExpiredCondition }), nameof(PatrolState));
+
+        //evade
+
+        stateMachine.AddTransition(nameof(EvadeScript), new Transition(new Condition[] { enemyNotSeenCondition, timerExpiredCondition }), nameof(IdleState));
+
+        //other
+
+        stateMachine.AddAnyTransition(new Transition(new Condition[] { deathCondition }), nameof(DeathState));
 
         stateMachine.StartState(nameof(IdleState));
 
@@ -101,8 +125,8 @@ public class StateAgent : Agent{
         timer.value -= Time.deltaTime;
         
         atDestination.value = ((movement.destination - transform.position).sqrMagnitude <= 1);
-        
-        animationDone.value = (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0));
+
+        animationDone.value = (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.8f && !animator.IsInTransition(0));
 
         stateMachine.Update();
 

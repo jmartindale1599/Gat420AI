@@ -7,8 +7,6 @@ using UnityEngine;
 
 public class AttackState : State{
 
-    private float timer;
-
     public AttackState(StateAgent owner) : base(owner){
 
     }
@@ -25,8 +23,6 @@ public class AttackState : State{
 
         AnimationClip clip = clips.FirstOrDefault<AnimationClip>(clip => clip.name == "Stabbing"); //fancy for loop
         
-        timer = (clip != null) ? clip.length : 1;
-
         var colliders = Physics.OverlapSphere(owner.transform.position, 2);
 
         foreach(var collider in colliders){
@@ -49,14 +45,6 @@ public class AttackState : State{
 
     public override void OnUpdate(){
 
-        timer -= Time.deltaTime;
-
-        if(timer <= 0){
-
-            owner.stateMachine.StartState(nameof(ChaseState));
-        
-        }
-    
     }
 
 }

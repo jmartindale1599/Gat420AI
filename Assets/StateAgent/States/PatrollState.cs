@@ -5,8 +5,6 @@ using static UnityEngine.UI.GridLayoutGroup;
 
 public class PatrolState : State{
 
-	public float timer;
-
 	public PatrolState(StateAgent owner) : base(owner){
 
 	}
@@ -34,9 +32,9 @@ public class PatrolState : State{
 		
 		}
 
-		timer -= Time.deltaTime;
+		//owner.timer -= Time.deltaTime;
 
-		if(timer <= 0){
+		if(owner.timer <= 0){
 			owner.stateMachine.StartState(nameof(WanderState));
 		
 		}

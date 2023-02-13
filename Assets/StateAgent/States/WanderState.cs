@@ -24,6 +24,8 @@ public class WanderState : State{
 
         target = owner.transform.position + Quaternion.AngleAxis(Random.Range(0,360),Vector3.up).eulerAngles;
 
+        owner.movement.MoveTowards(target);
+
     }
 
     public override void OnExit(){
@@ -31,18 +33,6 @@ public class WanderState : State{
     }
 
     public override void OnUpdate(){
-
-        // draw debug line from current position to target position 
-       
-        Debug.DrawLine(owner.transform.position, target);
-        
-        owner.movement.MoveTowards(target);
-        
-        if (owner.movement.velocity.magnitude == 0) {
-
-            owner.stateMachine.StartState(nameof(IdleState));
-
-        }
 
     }
 
